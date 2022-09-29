@@ -15,29 +15,40 @@ main {
   justify-content: center;
   align-items: center;
   display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 section {
-  background-color: white;
-  margin: 80px 20px;
-  display: flex;
-  flex-direction: column;
+  padding: 200px;
+  position: absolute;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "nav aside"
+    "footer footer";
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  display: grid;
+  order: 1;
+  text-align: start;
+  grid-area: nav;
 }
 
 .titulo {
   font-size: 50px;
-  padding: 20px 60px;
   color: #4b2250;
 }
 
 .texto {
-  padding: 20px 40px;
   color: #877f88;
   font-weight: 700;
 }
@@ -47,19 +58,19 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  display: grid;
+  grid-area: aside;
 }
 
 .estrella {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 70px;
+  height: 50px;
   background-color: #f5f3f7;
   color: black;
-  width: 250px;
+  width: 350px;
   margin: 5px 0px;
   border-radius: 10px;
 }
@@ -70,9 +81,12 @@ section {
 
 .opiniones {
   display: flex;
-  flex: 5;
   flex-direction: column;
   align-items: center;
+  display: grid;
+  grid-area: footer;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: center;
 }
 
 .opnion {
@@ -82,6 +96,7 @@ section {
   border: 5px solid white;
   border-radius: 18px;
   padding: 20px;
+  justify-content: center;
 }
 
 .perfil {
@@ -109,65 +124,4 @@ section {
   font-size: 15px;
   font-weight: 400;
   padding: 20px 0px;
-}
-
-@media (min-width: 700px) {
-  main {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  section {
-    height: 100%;
-    margin: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .todo {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .container {
-    display: flex;
-    order: 1;
-    height: 200px;
-    width: 500px;
-    text-align: start;
-  }
-
-  .titulo {
-    margin: 0;
-    padding: 0px 148px 0px 0px;
-  }
-
-  .texto {
-    padding: 20px 80px 0px 0px;
-  }
-
-  .estrellas {
-    display: flex;
-    order: 2;
-    height: 200px;
-    width: 500px;
-  }
-
-  .opiniones {
-    display: flex;
-    order: 3;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 100px;
-  }
-
-  .opnion {
-    border: 5px solid white;
-    height: auto;
-  }
 }
